@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { useDispatch } from "react-redux";
 import { add } from "./store/cartSlice";
+import './product.css'
 const Product = () => {
   const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
@@ -22,8 +23,8 @@ dispatch(add(product))
   }
 
   const cards = products.map((product) => (
-    <div style={{margin:"20px", width: "18rem"}}>
-      <Card style={{width: "18rem", height: "25rem", boxShadow: "1px 2px 5px black" , position: "relative"}}>
+    <div className="cart-container" >
+      <Card className="cart" >
         <div className="text-center">
         <Card.Img variant="top" src={product.image} style={{width: "180px", height: "210px", paddingTop: "15px"}}/>
        
@@ -42,9 +43,9 @@ dispatch(add(product))
 
 
   return (
-    <div style={{marginTop: "2rem" , display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
+    <div className="product-container" >
         <h1 className="heading" style={{fontSize: "2rem"}}>Product Dashboard</h1>
-      <div className="row" style={{width: "100%" , display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center"}}>{cards}</div>
+      <div className="product" >{cards}</div>
     </div>
   );
 };
